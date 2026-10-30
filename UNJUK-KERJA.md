@@ -18,12 +18,8 @@ GROUP BY u.user_id, u.name;
 ![hasil-no-1](Asset/Modul9-hasilno1.png)
 
  
-   Analisis Kompleksitas Query:
-Kompleksitas Waktu (Time Complexity): Secara teoretis, kompleksitas kueri ini berada pada kisaran O(N×M) atau O(N log⁡N ) jika dioptimalkan dengan indeks.
-   Mesin database harus melakukan pemindaian atau pencocokan baris (join) antara tabel users (N baris) dan tabel lokasi (M baris) melalui kolom relasi foreign key (mitra_id).
-Proses filter WHERE u.role = 'mitra' membantu mempersempit baris awal dari tabel users sebelum dicocokkan.
-Fungsi agregasi COUNT() dan pengelompokan GROUP BY memerlukan tahapan tambahan berupa penyortiran atau pengelompokan data akhir berdasarkan ID mitra.
-   Kompleksitas Ruang (Space Complexity):O(K), di mana K adalah jumlah baris unik mitra yang lolos dari filter dan berhasil dikelompokkan pada tabel hasil sementara (temporary result set).
+Analisis Kompleksitas Query:  Kompleksitas Waktu (Time Complexity): Secara teoretis, kompleksitas kueri ini berada pada kisaran O(N×M) atau O(N log⁡N ) jika dioptimalkan dengan indeks.  Mesin database harus melakukan pemindaian atau pencocokan baris (join) antara tabel users (N baris) dan tabel lokasi (M baris) melalui kolom relasi foreign key (mitra_id).
+Proses filter WHERE u.role = 'mitra' membantu mempersempit baris awal dari tabel users sebelum dicocokkan.  Fungsi agregasi COUNT() dan pengelompokan GROUP BY memerlukan tahapan tambahan berupa penyortiran atau pengelompokan data akhir berdasarkan ID mitra.  Kompleksitas Ruang (Space Complexity):O(K), di mana K adalah jumlah baris unik mitra yang lolos dari filter dan berhasil dikelompokkan pada tabel hasil sementara (temporary result set).
 
 
 
@@ -67,5 +63,5 @@ WHERE role = 'mitra';
 ![hasil-no-3](Asset/Modul9-hasilno3.png)
 
 Perbandingan Antara Tahap 1 dan Tahap 3 Dari Sisi Kompleksitas & Performa:
--Tahap 1 (Normalisasi Penuh): Menggunakan JOIN dan fungsi agregasi COUNT(). Proses kerjanya dinamis (on-the-fly), di mana MySQL harus mencocokkan baris antar tabel secara langsung setiap kali kueri dipanggil. Kompleksitas waktunya tinggi (O(N×M)), sehingga jika data pada tabel lokasi sudah mencapai ribuan baris, aplikasi akan terasa lambat (slow query) saat memuat halaman dasbor. 
--Tahap 3 (Hasil Denormalisasi): Menggunakan kueri SELECT sederhana dari satu tabel saja tanpa JOIN dan tanpa fungsi agregasi. Nilai totalnya sudah tersedia secara fisik di dalam kolom total_lokasi_terdaftar. Kompleksitas waktunya menjadi jauh lebih cepat (O(N)), sangat optimal untuk mendukung performa pemuatan halaman dasbor (dashboard aplikasi). 
+   Tahap 1 (Normalisasi Penuh): Menggunakan JOIN dan fungsi agregasi COUNT(). Proses kerjanya dinamis (on-the-fly), di mana MySQL harus mencocokkan baris antar tabel secara langsung setiap kali kueri dipanggil. Kompleksitas waktunya tinggi (O(N×M)), sehingga jika data pada tabel lokasi sudah mencapai ribuan baris, aplikasi akan terasa lambat (slow query) saat memuat halaman dasbor.
+   Tahap 3 (Hasil Denormalisasi): Menggunakan kueri SELECT sederhana dari satu tabel saja tanpa JOIN dan tanpa fungsi agregasi. Nilai totalnya sudah tersedia secara fisik di dalam kolom total_lokasi_terdaftar. Kompleksitas waktunya menjadi jauh lebih cepat (O(N)), sangat optimal untuk mendukung performa pemuatan halaman dasbor (dashboard aplikasi). 
