@@ -1,5 +1,5 @@
-1. Eksplorasi JOIN (Tahap 1): Tulis dan eksekusi satu query yang menggunakan JOIN (minimal 2 tabel)
-   dikombinasikan dengan fungsi agregasi (misal: menghitung total transaksi per pelanggan atau total barang terjual). Catat kompleksitas query-nya.
+**1. Eksplorasi JOIN (Tahap 1): Tulis dan eksekusi satu query yang menggunakan JOIN (minimal 2 tabel)
+     dikombinasikan dengan fungsi agregasi (misal: menghitung total transaksi per pelanggan atau total barang terjual).           Catat kompleksitas query-nya.**
 
 Jawab:
 
@@ -32,13 +32,13 @@ Kompleksitas Ruang (Space Complexity):O(K), di mana K adalah jumlah baris unik m
 
 
 
-2. Penerapan Denormalisasi (Tahap 2): Eksekusi DDL (ALTER TABLE atau CREATE TABLE) untuk menambahkan
+**2. Penerapan Denormalisasi (Tahap 2): Eksekusi DDL (ALTER TABLE atau CREATE TABLE) untuk menambahkan
    satu atribut turunan pada tabel master ATAU membuat satu tabel rekapitulasi
-   yang menyimpan hasil dari perhitungan tahap 1.  
+   yang menyimpan hasil dari perhitungan tahap 1.** 
 
-[CONTOH ILUSTRASI, uji dulu di versi yang dipakai]:
-ALTER TABLE pelanggan ADD COLUMN total_belanja DECIMAL(15,2) DEFAULT 0;
-
+   **[CONTOH ILUSTRASI, uji dulu di versi yang dipakai]:
+   ALTER TABLE pelanggan ADD COLUMN total_belanja DECIMAL(15,2) DEFAULT 0;**
+   
 Jawab:
 
 ```sql
@@ -56,8 +56,8 @@ SET total_lokasi_terdaftar = (
 ```
 ![hasil-no-2](Asset/modul9-hasilno2.png)
 
-3. Pembuktian (Tahap 3): Tulis query SELECT sederhana untuk memanggil data dari kolom/tabel denormalisasi
-   (Tahap 2) tanpa menggunakan JOIN atau agregasi. Bandingkan dengan query Tahap 1.
+**3. Pembuktian (Tahap 3): Tulis query SELECT sederhana untuk memanggil data dari kolom/tabel denormalisasi
+   (Tahap 2) tanpa menggunakan JOIN atau agregasi. Bandingkan dengan query Tahap 1.**
 
 Jawab:
 
