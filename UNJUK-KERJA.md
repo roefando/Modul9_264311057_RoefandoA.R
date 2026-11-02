@@ -30,7 +30,7 @@ Kompleksitas Waktu (Time Complexity): Secara teoretis, kompleksitas kueri ini be
 <br>
 Kompleksitas Ruang (Space Complexity):O(K), di mana K adalah jumlah baris unik mitra yang lolos dari filter dan berhasil dikelompokkan pada tabel hasil sementara (temporary result set).
 
-
+---
 
 **2. Penerapan Denormalisasi (Tahap 2): Eksekusi DDL (ALTER TABLE atau CREATE TABLE) untuk menambahkan
    satu atribut turunan pada tabel master ATAU membuat satu tabel rekapitulasi
@@ -55,6 +55,8 @@ SET total_lokasi_terdaftar = (
 );
 ```
 ![hasil-no-2](Asset/modul9-hasilno2.png)
+
+---
 
 **3. Pembuktian (Tahap 3): Tulis query SELECT sederhana untuk memanggil data dari kolom/tabel denormalisasi
    (Tahap 2) tanpa menggunakan JOIN atau agregasi. Bandingkan dengan query Tahap 1.**
